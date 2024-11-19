@@ -6,7 +6,7 @@ How to Run
 
 Step 1: Clone the repository
 
-git clone https://github.com/jakejeffers/MSCE-532-Assignment-6
+git clone https://github.com/jakejeffers/MSCS-532-Assignment-6.git
 
 cd MSCS-532-Assignment-6
 
