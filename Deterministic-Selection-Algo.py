@@ -76,3 +76,24 @@ def randomized_select(arr, k):
         return pivot
     else:
         return randomized_select(right, k - len(left) - len(equal))
+if __name__ == "__main__":
+    import time
+    import numpy as np
+
+    # Test data
+    arr_sizes = [100, 1000, 10000]
+    for size in arr_sizes:
+        test_arr = np.random.randint(0, 10000, size).tolist()
+        k = len(test_arr) // 2  # Median
+        
+        print(f"\nArray size: {size}, k = {k}")
+        
+        # Deterministic Select
+        start_time = time.time()
+        result_deterministic = deterministic_select(test_arr, k)
+        print(f"Deterministic Select: {result_deterministic} (Time: {time.time() - start_time:.4f}s)")
+        
+        # Randomized Select
+        start_time = time.time()
+        result_randomized = randomized_select(test_arr, k)
+        print(f"Randomized Select: {result_randomized} (Time: {time.time() - start_time:.4f}s)")
