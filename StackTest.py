@@ -17,3 +17,12 @@ class Stack:
 
     def is_empty(self):
         return len(self.data) == 0
+# Testing the Stack class
+stack = Stack()
+stack.push(5)  # Push 5 onto the stack
+stack.push(10)  # Push 10 onto the stack
+print("Top of stack:", stack.peek())  # Peek at the top
+
+print("Popped element:", stack.pop())  # Pop the top element
+print("Popped element:", stack.pop())  # Pop the next element
+print("Is stack empty?", stack.is_empty())  # Check if empty

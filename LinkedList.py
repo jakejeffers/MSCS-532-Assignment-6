@@ -37,3 +37,15 @@ class LinkedList:
             print(current.value, end=" -> ")
             current = current.next
         print("None")
+# Testing the LinkedList class
+linked_list = LinkedList()
+linked_list.insert(10)  # Add 10 to the list
+linked_list.insert(20)  # Add 20 to the list
+linked_list.insert(30)  # Add 30 to the list
+
+print("Linked list after insertions:")
+linked_list.traverse()  # Print all elements
+
+linked_list.delete(20)  # Remove 20 from the list
+print("Linked list after deletion:")
+linked_list.traverse()

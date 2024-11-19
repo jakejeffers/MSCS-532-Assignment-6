@@ -12,3 +12,14 @@ class Matrix:
         if row >= len(self.data) or row < 0:
             raise IndexError("Row out of range")
         self.data.pop(row)
+# Testing the Matrix class
+matrix = Matrix(3, 3, fill=0)  # 3x3 matrix filled with 0
+matrix.update(1, 1, 5)  # Set matrix[1][1] to 5
+print("Matrix after update:")
+for row in matrix.data:
+    print(row)
+
+matrix.delete_row(1)  # Remove the second row
+print("Matrix after row deletion:")
+for row in matrix.data:
+    print(row)
