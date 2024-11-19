@@ -1,3 +1,5 @@
+import random 
+
 def deterministic_select(arr, k):
     """
     Finds the k-th smallest element in the array using the Median of Medians algorithm.
@@ -39,3 +41,38 @@ def deterministic_select(arr, k):
         return pivot
     else:
         return deterministic_select(right, k - len(left) - len(equal))
+
+def randomized_select(arr, k):
+    """
+    Finds the k-th smallest element in the array using the Randomized Quickselect algorithm.
+    :param arr: List of elements
+    :param k: Index (1-based) of the k-th smallest element
+    :return: The k-th smallest element
+    """
+    if len(arr) == 1:
+        return arr[0]
+    
+    def partition(arr, pivot):
+        left, right, equal = [], [], []
+        for x in arr:
+            if x < pivot:
+                left.append(x)
+            elif x > pivot:
+                right.append(x)
+            else:
+                equal.append(x)
+        return left, equal, right
+    
+    # Step 1: Choose a random pivot
+    pivot = random.choice(arr)
+    
+    # Step 2: Partition the array around the pivot
+    left, equal, right = partition(arr, pivot)
+    
+    # Step 3: Determine which partition contains the k-th smallest element
+    if k <= len(left):
+        return randomized_select(left, k)
+    elif k <= len(left) + len(equal):
+        return pivot
+    else:
+        return randomized_select(right, k - len(left) - len(equal))
